@@ -57,4 +57,5 @@ Although in a very early stage, future stages will include metadata output, 3d v
 ```python
 I = dicomread('example.dcm');
 imshow(I,'DisplayRange',[])
+info = dicominfo('example.dcm')
 ```
