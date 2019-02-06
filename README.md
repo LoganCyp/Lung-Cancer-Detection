@@ -51,3 +51,10 @@ detection_matrix = [detections, false_positives, false_alarms, true_positives];
 cm_p = (detection_matrix ./ Nt) .* 100           ;
 disp(cm_p);
 ```
+### DICOM Viewer
+Although in a very early stage, future stages will include metadata output, 3d view, and a choice to choose from a file hierarchy.
+
+```python
+I = dicomread('example.dcm');
+imshow(I,'DisplayRange',[])
+```
