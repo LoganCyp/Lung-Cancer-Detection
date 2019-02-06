@@ -9,8 +9,8 @@ net = network;
 net.numInputs = 1;
 net.numLayers = 4;
 
-x = size(double(c1));  
-y = size(double(c2)); 
+x = size(double(mean));  
+y = size(double(variance)); 
    
 net = newff(x,y,[6,6]);
 net.trainFcn = 'traingdx';
