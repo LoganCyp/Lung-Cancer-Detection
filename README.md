@@ -1,5 +1,8 @@
 # Lung Cancer Detection
 
+### Science Fair
+This is my 2019 science fair project for the AHS Science Fair, code will be posted when all presentations have been completed.
+
 Feed Forward Neural Network Model, the model inputs a vector of data extracted from the gray level co-occurance matrix. Then the model goes through a model consisting of the 2 hyperbolic tangent functions and 1 pure linear output layer. The test and train sets are split in a 70%-30% split. 
 
 ### Neural Network Model
