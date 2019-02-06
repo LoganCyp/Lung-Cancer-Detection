@@ -31,8 +31,8 @@ net.trainParam.time = inf;
 net.trainParam.show = 5;
 
 [net,tr] = train(net,x,y,'CheckpointFile','weights.mat');
-testInputs = P(:,tr.testInd);
-testTargets = T(:,tr.testInd);
+testInputs = x(:,tr.testInd);
+testTargets = y(:,tr.testInd);
 out = round(sim(net,testInputs)); 
 diff = (testTargets - 2*out);
 disp(diff);
