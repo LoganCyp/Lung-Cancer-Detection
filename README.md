@@ -9,10 +9,10 @@ net = network;
 net.numInputs = 1;
 net.numLayers = 4;
 
-P = size(double(c1));  
-T = size(double(c2)); 
+x = size(double(c1));  
+y = size(double(c2)); 
    
-net = newff(P,T,[6,6]);
+net = newff(x,y,[6,6]);
 net.trainFcn = 'traingdx';
 
 net.layers{1}.transferFcn = 'tansig';
@@ -30,14 +30,14 @@ net.trainParam.epochs = 500;
 net.trainParam.time = inf;
 net.trainParam.show = 5;
 
-[net,tr] = train(net,P,T,'CheckpointFile','weights.mat');
+[net,tr] = train(net,x,y,'CheckpointFile','weights.mat');
 testInputs = P(:,tr.testInd);
 testTargets = T(:,tr.testInd);
 out = round(sim(net,testInputs)); 
 diff = (testTargets - 2*out);
 disp(diff);
 
-perf = perform(net,P,T);
+perf = perform(net,x,y);
 disp(perf);
 
 detections = length(find(diff<-1));
@@ -47,7 +47,7 @@ false_alarms = length(find(diff==-2));
 
 Nt = size(testInputs,2);           
 fprintf('Total testing samples: %d\n', Nt);
-cm = [detections, false_positives, false_alarms, true_positives];
-cm_p = (cm ./ Nt) .* 100           ;
-disp(cm);
+detection_matrix = [detections, false_positives, false_alarms, true_positives];
+cm_p = (detection_matrix ./ Nt) .* 100           ;
+disp(cm_p);
 ```
