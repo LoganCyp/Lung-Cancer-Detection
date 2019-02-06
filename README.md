@@ -58,7 +58,19 @@ disp(cm_p);
 Although in a very early stage, future stages will include metadata output, 3d view, and a choice to choose from a file hierarchy.
 
 ```python
-I = dicomread('example.dcm');
-imshow(I,'DisplayRange',[])
-info = dicominfo('example.dcm')
+Global I 
+
+[filename, pathname] = uigetfile('*.dcm', 'Pick an Image');
+     if isequal(filename,0) || isequal(pathname,0)
+      
+   warndlg('No File Is Selected','Warning');
+           else
+              I=dicomread(filename);
+     
+      imshow(I,'DisplayRange',[])
+      title 'Input Image'
+    end
+
+
+info = dicominfo(filename)
 ```
