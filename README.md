@@ -12,8 +12,8 @@ net = network;
 net.numInputs = 1;
 net.numLayers = 4;
 
-x = size(double(mean));  
-y = size(double(variance)); 
+x = size(double(avg));  
+y = size(double(var)); 
    
 net = newff(x,y,[6,6]);
 net.trainFcn = 'traingdx';
